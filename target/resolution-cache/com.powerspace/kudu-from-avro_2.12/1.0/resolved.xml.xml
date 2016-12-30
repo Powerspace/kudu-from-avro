@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0" xmlns:e="http://ant.apache.org/ivy/extra">
+	<info organisation="com.powerspace"
+		module="kudu-from-avro_2.12"
+		revision="1.0"
+		status="integration"
+		publication="20161230163126"
+	>
+		<description>
+		kudu-from-avro
+		</description>
+	</info>
+	<configurations>
+		<conf name="compile" visibility="public" description=""/>
+		<conf name="runtime" visibility="public" description="" extends="compile"/>
+		<conf name="test" visibility="public" description="" extends="runtime"/>
+		<conf name="provided" visibility="public" description=""/>
+		<conf name="optional" visibility="public" description=""/>
+		<conf name="compile-internal" visibility="private" description="" extends="compile,optional,provided"/>
+		<conf name="runtime-internal" visibility="private" description="" extends="runtime,optional"/>
+		<conf name="test-internal" visibility="private" description="" extends="test,optional,provided"/>
+		<conf name="plugin" visibility="private" description=""/>
+		<conf name="sources" visibility="public" description=""/>
+		<conf name="docs" visibility="public" description=""/>
+		<conf name="pom" visibility="public" description=""/>
+		<conf name="scala-tool" visibility="private" description=""/>
+	</configurations>
+	<publications>
+		<artifact name="kudu-from-avro_2.12" type="pom" ext="pom" conf="pom"/>
+		<artifact name="kudu-from-avro_2.12" type="jar" ext="jar" conf="compile"/>
+		<artifact name="kudu-from-avro_2.12" type="src" ext="jar" conf="sources" e:classifier="sources"/>
+		<artifact name="kudu-from-avro_2.12" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
+	</publications>
+	<dependencies>
+		<dependency org="org.scala-lang" name="scala-compiler" rev="2.12.1" conf="scala-tool->default,optional(default)"/>
+		<dependency org="org.scala-lang" name="scala-library" rev="2.12.1" conf="scala-tool->default,optional(default);compile->default(compile)"/>
+		<dependency org="com.github.scopt" name="scopt_2.12" rev="3.5.0" conf="compile->default(compile)"/>
+		<dependency org="org.apache.kudu" name="kudu-client" rev="1.1.0" conf="compile->default(compile)"/>
+		<dependency org="org.apache.avro" name="avro" rev="1.8.1" conf="compile->default(compile)"/>
+		<dependency org="org.slf4j" name="slf4j-api" rev="1.7.22" conf="compile->default(compile)"/>
+		<dependency org="org.slf4j" name="slf4j-simple" rev="1.7.22" conf="compile->default(compile)"/>
+	</dependencies>
+</ivy-module>

@@ -1,0 +1,302 @@
+format version: 5
+output mode:
+1 items
+0 -> single
+output directories:
+1 items
+output dir -> /Users/sderosiaux/Code/kudu-from-avro/target/scala-2.12/classes
+compile options:
+9 items
+0 -> -unchecked
+1 -> -feature
+2 -> -deprecation
+3 -> -encoding
+4 -> utf8
+5 -> -Ywarn-dead-code
+6 -> -Ywarn-numeric-widen
+7 -> -Ywarn-unused
+8 -> -Ywarn-unused-import
+javac options:
+0 items
+compiler version:
+1 items
+0 -> 2.12.1
+compile order:
+1 items
+0 -> Mixed
+name hashing:
+1 items
+0 -> true
+products:
+6 items
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> /Users/sderosiaux/Code/kudu-from-avro/target/scala-2.12/classes/com/powerspace/kudu/Config$.class
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> /Users/sderosiaux/Code/kudu-from-avro/target/scala-2.12/classes/com/powerspace/kudu/Config.class
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> /Users/sderosiaux/Code/kudu-from-avro/target/scala-2.12/classes/com/powerspace/kudu/CreateTable$$anon$1.class
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> /Users/sderosiaux/Code/kudu-from-avro/target/scala-2.12/classes/com/powerspace/kudu/CreateTable$.class
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> /Users/sderosiaux/Code/kudu-from-avro/target/scala-2.12/classes/com/powerspace/kudu/CreateTable$delayedInit$body.class
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> /Users/sderosiaux/Code/kudu-from-avro/target/scala-2.12/classes/com/powerspace/kudu/CreateTable.class
+binary dependencies:
+7 items
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> /Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/rt.jar
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> /Users/sderosiaux/.ivy2/cache/com.github.scopt/scopt_2.12/jars/scopt_2.12-3.5.0.jar
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> /Users/sderosiaux/.ivy2/cache/com.stumbleupon/async/jars/async-1.4.1.jar
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> /Users/sderosiaux/.ivy2/cache/org.apache.avro/avro/bundles/avro-1.8.1.jar
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> /Users/sderosiaux/.ivy2/cache/org.apache.kudu/kudu-client/jars/kudu-client-1.1.0.jar
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> /Users/sderosiaux/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.12.1.jar
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> /Users/sderosiaux/.ivy2/cache/org.slf4j/slf4j-api/jars/slf4j-api-1.7.22.jar
+direct source dependencies:
+0 items
+direct external dependencies:
+0 items
+public inherited source dependencies:
+0 items
+public inherited external dependencies:
+0 items
+member reference internal dependencies:
+0 items
+member reference external dependencies:
+0 items
+inheritance internal dependencies:
+0 items
+inheritance external dependencies:
+0 items
+class names:
+6 items
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> com.powerspace.kudu.Config
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> com.powerspace.kudu.Config$
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> com.powerspace.kudu.CreateTable
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> com.powerspace.kudu.CreateTable$
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> com.powerspace.kudu.CreateTable$$anon$1
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> com.powerspace.kudu.CreateTable$delayedInit$body
+used names:
+184 items
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> $anon
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> &&
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> <init>
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> ==
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> A
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> AbstractFunction7
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> App
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> AsyncKuduClient
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> AsyncKuduClientBuilder
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> Boolean
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> Buffer
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> Codec
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> ColumnSchema
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> ColumnSchemaBuilder
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> CompressionAlgorithm
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> Config
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> CreateTable
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> CreateTableOptions
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> IllegalArgumentException
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> Int
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> JavaConverters
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> List
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> LoggerFactory
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> Nil
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> None
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> Option
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> OptionParser
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> Ordering
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> Parser
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> Predef
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> Product
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> Read
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> ScalaRunTime
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> Schema
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> Serializable
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> Source
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> Statics
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> String
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> StringContext
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> Tuple7
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> Type
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> _root_
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> _toString
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> action
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> addHashPartitions
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> anyHash
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> apache
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> apply
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> args
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> asInstanceOf
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> asJava
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> asScala
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> asScalaBufferConverter
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> augmentString
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> avro
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> avroSchema
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> avroSchemaPath
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> booleanRead
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> buckets
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> build
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> buildKuduStructure
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> by
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> c
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> canBuildFrom
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> client
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> collection
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> com
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> compressed
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> compressionAlgorithm
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> config
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> createTable
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> eq
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> exists
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> fallbackSystemCodec
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> field
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> filterNot
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> finalizeHash
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> fromFile
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> getClass
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> getFields
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> getLogger
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> getType
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> getTypes
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> head
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> immutable
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> info
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> intRead
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> io
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> isInstanceOf
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> isKey
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> join
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> key
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> kudu
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> kuduServers
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> listRead
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> logger
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> map
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> math
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> mix
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> mkString
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> mutable
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> name
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> newTableName
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> nullable
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> opt
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> options
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> orderingByName
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> org
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> package
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> parse
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> parser
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> pkey
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> powerspace
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> reads
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> refArrayOps
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> remainingUnionTypes
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> replica
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> required
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> runtime
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> s
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> scala
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> schema
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> scopt
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> seqAsJavaListConverter
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> setNumReplicas
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> size
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> slf4j
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> sorted
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> split
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> stringRead
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> t
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> tableName
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> text
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> toKuduColumn
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> toList
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> toString
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> typedProductIterator
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> unary_!
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> value
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> wrapRefArray
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$10
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$11
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$12
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$13
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$14
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$15
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$16
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$17
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$18
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$19
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$20
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$21
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$22
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$23
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$24
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$25
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$26
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$27
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$28
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$29
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$30
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$31
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$32
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$33
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$34
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$35
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$36
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$37
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$38
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$39
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$4
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$40
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$41
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$42
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$43
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$44
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$45
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$5
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$6
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$7
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$8
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> x$9
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> ||
+product stamps:
+6 items
+/Users/sderosiaux/Code/kudu-from-avro/target/scala-2.12/classes/com/powerspace/kudu/Config$.class -> lastModified(1483112477000)
+/Users/sderosiaux/Code/kudu-from-avro/target/scala-2.12/classes/com/powerspace/kudu/Config.class -> lastModified(1483112477000)
+/Users/sderosiaux/Code/kudu-from-avro/target/scala-2.12/classes/com/powerspace/kudu/CreateTable$$anon$1.class -> lastModified(1483112477000)
+/Users/sderosiaux/Code/kudu-from-avro/target/scala-2.12/classes/com/powerspace/kudu/CreateTable$.class -> lastModified(1483112477000)
+/Users/sderosiaux/Code/kudu-from-avro/target/scala-2.12/classes/com/powerspace/kudu/CreateTable$delayedInit$body.class -> lastModified(1483112477000)
+/Users/sderosiaux/Code/kudu-from-avro/target/scala-2.12/classes/com/powerspace/kudu/CreateTable.class -> lastModified(1483112477000)
+source stamps:
+1 items
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> hash(f54051092d07c68730e718c8b07467980ca202d3)
+binary stamps:
+7 items
+/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/rt.jar -> lastModified(1459498886000)
+/Users/sderosiaux/.ivy2/cache/com.github.scopt/scopt_2.12/jars/scopt_2.12-3.5.0.jar -> lastModified(1478105329000)
+/Users/sderosiaux/.ivy2/cache/com.stumbleupon/async/jars/async-1.4.1.jar -> lastModified(1432134360000)
+/Users/sderosiaux/.ivy2/cache/org.apache.avro/avro/bundles/avro-1.8.1.jar -> lastModified(1463501030000)
+/Users/sderosiaux/.ivy2/cache/org.apache.kudu/kudu-client/jars/kudu-client-1.1.0.jar -> lastModified(1479168521000)
+/Users/sderosiaux/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.12.1.jar -> lastModified(1480936165000)
+/Users/sderosiaux/.ivy2/cache/org.slf4j/slf4j-api/jars/slf4j-api-1.7.22.jar -> lastModified(1481648725000)
+class names:
+7 items
+/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/rt.jar -> java.lang.Object
+/Users/sderosiaux/.ivy2/cache/com.github.scopt/scopt_2.12/jars/scopt_2.12-3.5.0.jar -> scopt.OptionParser
+/Users/sderosiaux/.ivy2/cache/com.stumbleupon/async/jars/async-1.4.1.jar -> com.stumbleupon.async.Deferred
+/Users/sderosiaux/.ivy2/cache/org.apache.avro/avro/bundles/avro-1.8.1.jar -> org.apache.avro.Schema
+/Users/sderosiaux/.ivy2/cache/org.apache.kudu/kudu-client/jars/kudu-client-1.1.0.jar -> org.apache.kudu.Type
+/Users/sderosiaux/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.12.1.jar -> scala.runtime.AbstractFunction7
+/Users/sderosiaux/.ivy2/cache/org.slf4j/slf4j-api/jars/slf4j-api-1.7.22.jar -> org.slf4j.Logger
+internal apis:
+1 items
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> 
+rO0ABXNyABB4c2J0aS5hcGkuU291cmNlFlpwRASfbtoCAAZJAAdhcGlIYXNoWgAIaGFzTWFjcm9MABhfaW50ZXJuYWxPbmx5X25hbWVIYXNoZXN0ACRMeHNidGkvYXBpL19pbnRlcm5hbE9ubHlfTmFtZUhhc2hlcztMAANhcGl0ABVMeHNidGkvYXBpL1NvdXJjZUFQSTtMAAtjb21waWxhdGlvbnQAF0x4c2J0aS9hcGkvQ29tcGlsYXRpb247WwAEaGFzaHQAAltCeHBxMx9oAHNyACJ4c2J0aS5hcGkuX2ludGVybmFsT25seV9OYW1lSGFzaGVzVNq+mfrU7EwCAAJbAA9pbXBsaWNpdE1lbWJlcnN0ACNbTHhzYnRpL2FwaS9faW50ZXJuYWxPbmx5X05hbWVIYXNoO1sADnJlZ3VsYXJNZW1iZXJzcQB+AAd4cHVyACNbTHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoO0lagLbdlov0AgAAeHAAAAABc3IAIHhzYnRpLmFwaS5faW50ZXJuYWxPbmx5X05hbWVIYXNoWw71InY4V88CAAJJAARoYXNoTAAEbmFtZXQAEkxqYXZhL2xhbmcvU3RyaW5nO3hwlHZw2nQACGxpc3RSZWFkdXEAfgAJAAAAMXNxAH4AC1t23fJ0AAZub3RpZnlzcQB+AAtvyG8bdAAHcmVwbGljYXNxAH4AC0htS4Z0AAR3YWl0c3EAfgALjADnQ3QADmNvcHkkZGVmYXVsdCQyc3EAfgAL8dzG1nQADSRhc0luc3RhbmNlT2ZzcQB+AAu3Uc/vdAAGbG9nZ2Vyc3EAfgAL3AoOjXQADmNvcHkkZGVmYXVsdCQ1c3EAfgAL6w8eUnQAC2t1ZHVTZXJ2ZXJzc3EAfgALoNjtD3QADHByb2R1Y3RBcml0eXNxAH4AC4SjGwZ0AAZlcXVhbHNzcQB+AAvOlBl4dAALQ3JlYXRlVGFibGVzcQB+AAtnFiK5dAAMYXNJbnN0YW5jZU9mc3EAfgALWy4UanQADmV4ZWN1dGlvblN0YXJ0c3EAfgALv+s2fXQABnBhcnNlcnNxAH4AC2cBlel0AAxzeW5jaHJvbml6ZWRzcQB+AAtmkiKEdAANJGlzSW5zdGFuY2VPZnNxAH4AC74qmap0AAhjYW5FcXVhbHNxAH4AC/LsM9t0AA5jb3B5JGRlZmF1bHQkNHNxAH4ACwR2cfB0AARtYWluc3EAfgAL20HaE3QADXByb2R1Y3RQcmVmaXhzcQB+AAvi4/GfdAAJbm90aWZ5QWxsc3EAfgALxaGFxHQABHBrZXlzcQB+AAvArfHidAAMaXNJbnN0YW5jZU9mc3EAfgALUHECb3QAC2NyZWF0ZVRhYmxlc3EAfgALuGzOXnQABjxpbml0PnNxAH4AC1R9CLB0AAZDb25maWdzcQB+AAsgN1vKdAAHYnVja2V0c3NxAH4AC5pekDN0AAl0YWJsZU5hbWVzcQB+AAvVh8vydAACPT1zcQB+AAuKjcq3dAAKY29tcHJlc3NlZHNxAH4AC8gysuZ0AAVjbG9uZXNxAH4AC3TPwfh0AA5jb3B5JGRlZmF1bHQkN3NxAH4AC79I44V0AA5jb3B5JGRlZmF1bHQkM3NxAH4AC+CpXF90AARjb3B5c3EAfgALGrSpFXQACHRvU3RyaW5nc3EAfgALh+J48HQABGFyZ3NzcQB+AAsm7o46dAACIT1zcQB+AAsOSyPjdAAOYXZyb1NjaGVtYVBhdGhzcQB+AAtRk9ghdAAIZ2V0Q2xhc3NzcQB+AAuzqtGLdAAOY29weSRkZWZhdWx0JDFzcQB+AAs2zOsCdAAOY29weSRkZWZhdWx0JDZzcQB+AAthFEXrdAACbmVzcQB+AAuyCT8odAACZXFzcQB+AAuO2myGdAAPcHJvZHVjdEl0ZXJhdG9yc3EAfgALnDs3dXQAC2RlbGF5ZWRJbml0c3EAfgAL/dreYHQAAiMjc3EAfgALH/tDZ3QACGZpbmFsaXplc3EAfgALvAp5WnQADnByb2R1Y3RFbGVtZW50c3EAfgAL8YmtdXQACGhhc2hDb2Rlc3IAE3hzYnRpLmFwaS5Tb3VyY2VBUEm5Xqf5KSM4pAIAAlsAC2RlZmluaXRpb25zdAAXW0x4c2J0aS9hcGkvRGVmaW5pdGlvbjtbAAhwYWNrYWdlc3QAFFtMeHNidGkvYXBpL1BhY2thZ2U7eHB1cgAXW0x4c2J0aS5hcGkuRGVmaW5pdGlvbjuIyVzntONeDgIAAHhwAAAAAnNyABN4c2J0aS5hcGkuQ2xhc3NMaWtlgzQcod+wl2wCAARMAA5kZWZpbml0aW9uVHlwZXQAGkx4c2J0aS9hcGkvRGVmaW5pdGlvblR5cGU7WwAQc2F2ZWRBbm5vdGF0aW9uc3QAE1tMamF2YS9sYW5nL1N0cmluZztMAAhzZWxmVHlwZXQAEEx4c2J0aS9hcGkvTGF6eTtMAAlzdHJ1Y3R1cmVxAH4Ae3hyACF4c2J0aS5hcGkuUGFyYW1ldGVyaXplZERlZmluaXRpb275EW6x1VA84gIAAVsADnR5cGVQYXJhbWV0ZXJzdAAaW0x4c2J0aS9hcGkvVHlwZVBhcmFtZXRlcjt4cgAUeHNidGkuYXBpLkRlZmluaXRpb26HKhvocULjRgIABEwABmFjY2Vzc3QAEkx4c2J0aS9hcGkvQWNjZXNzO1sAC2Fubm90YXRpb25zdAAXW0x4c2J0aS9hcGkvQW5ub3RhdGlvbjtMAAltb2RpZmllcnN0ABVMeHNidGkvYXBpL01vZGlmaWVycztMAARuYW1lcQB+AAx4cHNyABB4c2J0aS5hcGkuUHVibGljulg9rmwtYEICAAB4cgAQeHNidGkuYXBpLkFjY2Vzc91imvgdYzFIAgAAeHB1cgAXW0x4c2J0aS5hcGkuQW5ub3RhdGlvbjvrl+sZEPaNSAIAAHhwAAAAAHNyABN4c2J0aS5hcGkuTW9kaWZpZXJzxxETIWmc3CQCAAFCAAVmbGFnc3hwAHQAGmNvbS5wb3dlcnNwYWNlLmt1ZHUuQ29uZmlndXIAGltMeHNidGkuYXBpLlR5cGVQYXJhbWV0ZXI72W0mDyid8rYCAAB4cAAAAAB+cgAYeHNidGkuYXBpLkRlZmluaXRpb25UeXBlAAAAAAAAAAASAAB4cgAOamF2YS5sYW5nLkVudW0AAAAAAAAAABIAAHhwdAAIQ2xhc3NEZWZ1cgATW0xqYXZhLmxhbmcuU3RyaW5nO63SVufpHXtHAgAAeHAAAAAAc3IAE3hzYnRpLlNhZmVMYXp5JEltcGxQAi6Tl5dAPwIAA1oACGJpdG1hcCQwTAACX3R0ABJMamF2YS9sYW5nL09iamVjdDtMAARldmFsdAARTHNjYWxhL0Z1bmN0aW9uMDt4cgAWeHNidGkuYXBpLkFic3RyYWN0TGF6edN3tQFfu+egAgAAeHAAcHNyACB4c2J0aS5TYWZlTGF6eSQkYW5vbmZ1biRzdHJpY3QkMQAAAAAAAAAAAgABTAAHdmFsdWUkMXEAfgCUeHBzcgATeHNidGkuYXBpLkVtcHR5VHlwZbz9nkZJO4kkAgAAeHIAFHhzYnRpLmFwaS5TaW1wbGVUeXBlcnhiiCEjv0ACAAB4cgAOeHNidGkuYXBpLlR5cGU/atkhFkmqygIAAHhwc3EAfgCTAHBzcQB+AJhzcgATeHNidGkuYXBpLlN0cnVjdHVyZamq+YCTb9gAAgADTAAIZGVjbGFyZWRxAH4Ae0wACWluaGVyaXRlZHEAfgB7TAAHcGFyZW50c3EAfgB7eHEAfgCcc3EAfgCTAHBzcQB+AJh1cQB+AHYAAAAAc3EAfgCTAHBzcQB+AJh1cQB+AHYAAAAAc3EAfgCTAHBzcQB+AJh1cgARW0x4c2J0aS5hcGkuVHlwZTt0/6Vae/npQQIAAHhwAAAABnNyABR4c2J0aS5hcGkuUHJvamVjdGlvbvPSjVTpRaQtAgACTAACaWRxAH4ADEwABnByZWZpeHQAFkx4c2J0aS9hcGkvU2ltcGxlVHlwZTt4cQB+AJt0AAxTZXJpYWxpemFibGVzcgATeHNidGkuYXBpLlNpbmdsZXRvbvynX/jPVuRGAgABTAAEcGF0aHQAEEx4c2J0aS9hcGkvUGF0aDt4cQB+AJtzcgAOeHNidGkuYXBpLlBhdGibPVwIzqUnhAIAAVsACmNvbXBvbmVudHN0ABpbTHhzYnRpL2FwaS9QYXRoQ29tcG9uZW50O3hwdXIAGltMeHNidGkuYXBpLlBhdGhDb21wb25lbnQ7Q9oJdC1nFnQCAAB4cAAAAAJzcgAMeHNidGkuYXBpLklkmDJsizdTxEACAAFMAAJpZHEAfgAMeHIAF3hzYnRpLmFwaS5QYXRoQ29tcG9uZW50X5oiWy6Gn7wCAAB4cHQABXNjYWxhc3IADnhzYnRpLmFwaS5UaGlz2wntpsxaQFwCAAB4cQB+ALlzcQB+AKxxAH4Ar3NxAH4AsHNxAH4As3VxAH4AtgAAAANzcQB+ALh0AARqYXZhc3EAfgC4dAACaW9xAH4AvXNxAH4ArHQAB1Byb2R1Y3RxAH4AsnNxAH4ArHQABkVxdWFsc3EAfgCyc3EAfgCsdAAGT2JqZWN0c3EAfgCwc3EAfgCzdXEAfgC2AAAAA3NxAH4AuHEAfgDDc3EAfgC4dAAEbGFuZ3EAfgC9c3EAfgCsdAADQW55cQB+ALJzcQB+AHhxAH4AhXVxAH4AhgAAAABzcQB+AIgAdAAfY29tLnBvd2Vyc3BhY2Uua3VkdS5DcmVhdGVUYWJsZXVxAH4AiwAAAAB+cQB+AI10AAZNb2R1bGV1cQB+AJEAAAACdAAQc2NhbGEuZGVwcmVjYXRlZHQAGnNjYWxhLmRlcHJlY2F0ZWRPdmVycmlkaW5nc3EAfgCTAHBzcQB+AJhxAH4AnXNxAH4AkwBwc3EAfgCYc3EAfgCgc3EAfgCTAHBzcQB+AJh1cQB+AHYAAAAAc3EAfgCTAHBzcQB+AJh1cQB+AHYAAAABc3IADXhzYnRpLmFwaS5EZWZSvp/ifLQ2aQIAAkwACnJldHVyblR5cGV0ABBMeHNidGkvYXBpL1R5cGU7WwAPdmFsdWVQYXJhbWV0ZXJzdAAaW0x4c2J0aS9hcGkvUGFyYW1ldGVyTGlzdDt4cQB+AHxxAH4AhXVxAH4AhgAAAAFzcgAUeHNidGkuYXBpLkFubm90YXRpb27eDoGi9lwKsgIAAlsACWFyZ3VtZW50c3QAH1tMeHNidGkvYXBpL0Fubm90YXRpb25Bcmd1bWVudDtMAARiYXNlcQB+AOp4cHVyAB9bTHhzYnRpLmFwaS5Bbm5vdGF0aW9uQXJndW1lbnQ7UZ2mjzglD3gCAAB4cAAAAAFzcgAceHNidGkuYXBpLkFubm90YXRpb25Bcmd1bWVudNZFsdgDGxd8AgACTAAEbmFtZXEAfgAMTAAFdmFsdWVxAH4ADHhwdAAAdAAqKCJtYWluIHNob3VsZCBub3QgYmUgb3ZlcnJpZGRlbiIsIjIuMTEuMCIpc3EAfgCsdAAUZGVwcmVjYXRlZE92ZXJyaWRpbmdzcQB+ALBzcQB+ALN1cQB+ALYAAAACc3EAfgC4cQB+ALtxAH4AvXNxAH4AiABxAH4ANXVxAH4AiwAAAABzcQB+AKx0AARVbml0cQB+APl1cgAaW0x4c2J0aS5hcGkuUGFyYW1ldGVyTGlzdDv10zod8rNw7gIAAHhwAAAAAXNyABd4c2J0aS5hcGkuUGFyYW1ldGVyTGlzdNbFvBxkSXTjAgACWgAKaXNJbXBsaWNpdFsACnBhcmFtZXRlcnN0ABxbTHhzYnRpL2FwaS9NZXRob2RQYXJhbWV0ZXI7eHAAdXIAHFtMeHNidGkuYXBpLk1ldGhvZFBhcmFtZXRlcjvPuMVdpd21bQIAAHhwAAAAAXNyABl4c2J0aS5hcGkuTWV0aG9kUGFyYW1ldGVyH0WuF9NJsOoCAARaAApoYXNEZWZhdWx0TAAIbW9kaWZpZXJ0AB1MeHNidGkvYXBpL1BhcmFtZXRlck1vZGlmaWVyO0wABG5hbWVxAH4ADEwAA3RwZXEAfgDqeHAAfnIAG3hzYnRpLmFwaS5QYXJhbWV0ZXJNb2RpZmllcgAAAAAAAAAAEgAAeHEAfgCOdAAFUGxhaW5xAH4AV3NyABd4c2J0aS5hcGkuUGFyYW1ldGVyaXplZBZs7mkDybt/AgACTAAIYmFzZVR5cGVxAH4ArVsADXR5cGVBcmd1bWVudHN0ABFbTHhzYnRpL2FwaS9UeXBlO3hxAH4Am3NxAH4ArHQABUFycmF5cQB+APl1cQB+AKoAAAABc3EAfgCsdAAGU3RyaW5nc3EAfgCwc3EAfgCzdXEAfgC2AAAAA3NxAH4AuHEAfgDDc3EAfgC4cQB+ANFxAH4AvXNxAH4AkwBwc3EAfgCYdXEAfgCqAAAABHNxAH4ArHQAA0FwcHEAfgD5c3EAfgCsdAALRGVsYXllZEluaXRxAH4A+XNxAH4ArHEAfgDLcQB+ARZzcQB+AKxxAH4A03EAfgD5dXIAFFtMeHNidGkuYXBpLlBhY2thZ2U7WxMZN3CnJ6ECAAB4cAAAAANzcgAReHNidGkuYXBpLlBhY2thZ2V+WY/2rs45WAIAAUwABG5hbWVxAH4ADHhwdAATY29tLnBvd2Vyc3BhY2Uua3VkdXNxAH4BJnQADmNvbS5wb3dlcnNwYWNlc3EAfgEmdAADY29tc3IAFXhzYnRpLmFwaS5Db21waWxhdGlvbu364MNq6KBCAgACSgAJc3RhcnRUaW1lWwAHb3V0cHV0c3QAGltMeHNidGkvYXBpL091dHB1dFNldHRpbmc7eHAAAAFZUGRTj3VyABpbTHhzYnRpLmFwaS5PdXRwdXRTZXR0aW5nO39qwvOnh6VCAgAAeHAAAAABc3IAF3hzYnRpLmFwaS5PdXRwdXRTZXR0aW5netmaR3T7HXsCAAJMAA9vdXRwdXREaXJlY3RvcnlxAH4ADEwAD3NvdXJjZURpcmVjdG9yeXEAfgAMeHB0AD8vVXNlcnMvc2Rlcm9zaWF1eC9Db2RlL2t1ZHUtZnJvbS1hdnJvL3RhcmdldC9zY2FsYS0yLjEyL2NsYXNzZXN0AAEvdXIAAltCrPMX+AYIVOACAAB4cAAAABT1QFEJLQfGhzDnGMiwdGeYDKIC0w==
+external apis:
+0 items
+source infos:
+1 items
+/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala -> 
+AAAAAAAAAAA=
+compilations:
+5 items
+0 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABWVBDcgB1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAPy9Vc2Vycy9zZGVyb3NpYXV4L0NvZGUva3VkdS1mcm9tLWF2cm8vdGFyZ2V0L3NjYWxhLTIuMTIvY2xhc3Nlc3QAAS8=
+1 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABWVBVFuh1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAPy9Vc2Vycy9zZGVyb3NpYXV4L0NvZGUva3VkdS1mcm9tLWF2cm8vdGFyZ2V0L3NjYWxhLTIuMTIvY2xhc3Nlc3QAAS8=
+2 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABWVBX3LV1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAPy9Vc2Vycy9zZGVyb3NpYXV4L0NvZGUva3VkdS1mcm9tLWF2cm8vdGFyZ2V0L3NjYWxhLTIuMTIvY2xhc3Nlc3QAAS8=
+3 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABWVBcOAR1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAPy9Vc2Vycy9zZGVyb3NpYXV4L0NvZGUva3VkdS1mcm9tLWF2cm8vdGFyZ2V0L3NjYWxhLTIuMTIvY2xhc3Nlc3QAAS8=
+4 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABWVBkU491cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAPy9Vc2Vycy9zZGVyb3NpYXV4L0NvZGUva3VkdS1mcm9tLWF2cm8vdGFyZ2V0L3NjYWxhLTIuMTIvY2xhc3Nlc3QAAS8=
