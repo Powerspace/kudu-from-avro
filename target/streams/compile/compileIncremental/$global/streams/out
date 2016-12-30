@@ -1,0 +1,48 @@
+[0m[[0mdebug[0m] [0m[0m
+[0m[[0mdebug[0m] [0mInitial source changes: [0m
+[0m[[0mdebug[0m] [0m	removed:Set()[0m
+[0m[[0mdebug[0m] [0m	added: Set()[0m
+[0m[[0mdebug[0m] [0m	modified: Set(/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala)[0m
+[0m[[0mdebug[0m] [0mRemoved products: Set(/Users/sderosiaux/Code/kudu-from-avro/target/scala-2.12/classes/com/powerspace/kudu/CreateTable$.class, /Users/sderosiaux/Code/kudu-from-avro/target/scala-2.12/classes/com/powerspace/kudu/CreateTable$$anon$1.class, /Users/sderosiaux/Code/kudu-from-avro/target/scala-2.12/classes/com/powerspace/kudu/Config.class, /Users/sderosiaux/Code/kudu-from-avro/target/scala-2.12/classes/com/powerspace/kudu/CreateTable.class, /Users/sderosiaux/Code/kudu-from-avro/target/scala-2.12/classes/com/powerspace/kudu/Config$.class, /Users/sderosiaux/Code/kudu-from-avro/target/scala-2.12/classes/com/powerspace/kudu/CreateTable$delayedInit$body.class)[0m
+[0m[[0mdebug[0m] [0mExternal API changes: API Changes: Set()[0m
+[0m[[0mdebug[0m] [0mModified binary dependencies: Set()[0m
+[0m[[0mdebug[0m] [0mInitial directly invalidated sources: Set(/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala)[0m
+[0m[[0mdebug[0m] [0m[0m
+[0m[[0mdebug[0m] [0mSources indirectly invalidated by:[0m
+[0m[[0mdebug[0m] [0m	product: Set(/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala)[0m
+[0m[[0mdebug[0m] [0m	binary dep: Set()[0m
+[0m[[0mdebug[0m] [0m	external source: Set()[0m
+[0m[[0mdebug[0m] [0mAll initially invalidated sources: Set(/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala)[0m
+[0m[[0mdebug[0m] [0mRecompiling all 1 sources: invalidated sources (1) exceeded 50.0% of all sources[0m
+[0m[[0minfo[0m] [0mCompiling 1 Scala source to /Users/sderosiaux/Code/kudu-from-avro/target/scala-2.12/classes...[0m
+[0m[[0mdebug[0m] [0mGetting compiler-interface from component compiler for Scala 2.12.1[0m
+[0m[[0mdebug[0m] [0mGetting compiler-interface from component compiler for Scala 2.12.1[0m
+[0m[[0mdebug[0m] [0mRunning cached compiler 67667357, interfacing (CompilerInterface) with Scala compiler version 2.12.1[0m
+[0m[[0mdebug[0m] [0mCalling Scala compiler with arguments  (CompilerInterface):[0m
+[0m[[0mdebug[0m] [0m	-unchecked[0m
+[0m[[0mdebug[0m] [0m	-feature[0m
+[0m[[0mdebug[0m] [0m	-deprecation[0m
+[0m[[0mdebug[0m] [0m	-encoding[0m
+[0m[[0mdebug[0m] [0m	utf8[0m
+[0m[[0mdebug[0m] [0m	-Ywarn-dead-code[0m
+[0m[[0mdebug[0m] [0m	-Ywarn-numeric-widen[0m
+[0m[[0mdebug[0m] [0m	-Ywarn-unused[0m
+[0m[[0mdebug[0m] [0m	-Ywarn-unused-import[0m
+[0m[[0mdebug[0m] [0m	-bootclasspath[0m
+[0m[[0mdebug[0m] [0m	/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/jre/classes:/Users/sderosiaux/.ivy2/cache/org.scala-lang/scala-library/jars/scala-library-2.12.1.jar[0m
+[0m[[0mdebug[0m] [0m	-classpath[0m
+[0m[[0mdebug[0m] [0m	/Users/sderosiaux/Code/kudu-from-avro/target/scala-2.12/classes:/Users/sderosiaux/.ivy2/cache/com.github.scopt/scopt_2.12/jars/scopt_2.12-3.5.0.jar:/Users/sderosiaux/.ivy2/cache/org.apache.kudu/kudu-client/jars/kudu-client-1.1.0.jar:/Users/sderosiaux/.ivy2/cache/org.apache.kudu/interface-annotations/jars/interface-annotations-1.1.0.jar:/Users/sderosiaux/.ivy2/cache/com.stumbleupon/async/jars/async-1.4.1.jar:/Users/sderosiaux/.ivy2/cache/org.slf4j/slf4j-api/jars/slf4j-api-1.7.22.jar:/Users/sderosiaux/.ivy2/cache/org.apache.avro/avro/bundles/avro-1.8.1.jar:/Users/sderosiaux/.ivy2/cache/org.codehaus.jackson/jackson-core-asl/jars/jackson-core-asl-1.9.13.jar:/Users/sderosiaux/.ivy2/cache/org.codehaus.jackson/jackson-mapper-asl/jars/jackson-mapper-asl-1.9.13.jar:/Users/sderosiaux/.ivy2/cache/com.thoughtworks.paranamer/paranamer/bundles/paranamer-2.7.jar:/Users/sderosiaux/.ivy2/cache/org.xerial.snappy/snappy-java/bundles/snappy-java-1.1.1.3.jar:/Users/sderosiaux/.ivy2/cache/org.apache.commons/commons-compress/jars/commons-compress-1.8.1.jar:/Users/sderosiaux/.ivy2/cache/org.tukaani/xz/jars/xz-1.5.jar:/Users/sderosiaux/.ivy2/cache/org.slf4j/slf4j-simple/jars/slf4j-simple-1.7.22.jar[0m
+[0m[[0mdebug[0m] [0mScala compilation took 8.10579242 s[0m
+[0m[[0mdebug[0m] [0mInvalidating /Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala...[0m
+[0m[[0mdebug[0m] [0mInvalidating (transitively) by inheritance from /Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala...[0m
+[0m[[0mdebug[0m] [0mInitial set of included nodes: Set(/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala)[0m
+[0m[[0mdebug[0m] [0mInvalidated by transitive inheritance dependency: Set(/Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala)[0m
+[0m[[0mdebug[0m] [0mThe /Users/sderosiaux/Code/kudu-from-avro/src/main/scala/com/powerspace/kudu/CreateTable.scala source file has the following regular definitions changed:[0m
+[0m[[0mdebug[0m] [0m	replica, copy$default$5, <init>, buckets, compressed, copy$default$7, copy, copy$default$6.[0m
+[0m[[0mdebug[0m] [0mAll member reference dependencies will be considered within this context.[0m
+[0m[[0mdebug[0m] [0mNew invalidations:[0m
+[0m[[0mdebug[0m] [0m	Set()[0m
+[0m[[0mdebug[0m] [0mInitial set of included nodes: Set()[0m
+[0m[[0mdebug[0m] [0mPreviously invalidated, but (transitively) depend on new invalidations:[0m
+[0m[[0mdebug[0m] [0m	Set()[0m
+[0m[[0mdebug[0m] [0mAll newly invalidated sources after taking into account (previously) recompiled sources:Set()[0m
