@@ -1,10 +1,10 @@
 package com.powerspace.kudu
 
-import org.apache.avro.Schema
+import com.powerspace.kudu.converters.{AvroConverter, Converter, KuduColumnBuilder, SqlConverter}
+import org.apache.kudu.{ColumnSchema, Schema}
 import org.apache.kudu.ColumnSchema.CompressionAlgorithm
 import org.apache.kudu.client.AsyncKuduClient.AsyncKuduClientBuilder
 import org.apache.kudu.client.CreateTableOptions
-import org.apache.kudu.{ColumnSchema, Type}
 import org.slf4j.LoggerFactory
 
 import scala.collection.JavaConverters._
@@ -13,8 +13,9 @@ import scala.io.Source
 case class Config(
                  tableName: String = "demo",
                  pkey: String = "id",
-                 avroSchemaPath: String = "",
+                 avroSchemaPath: Option[String] = None,
                  kuduServers: List[String] = List(),
+                 sql: Option[String] = None,
                  compressed: Boolean = true,
                  replica: Int = 3,
                  buckets: Int = 32
@@ -35,25 +36,37 @@ object CreateTable extends App {
       .action((x, c) => c.copy(pkey = x))
       .text("Primary key column name in the Kudu table")
 
-    opt[Int]('r', "replica").required()
+    opt[Int]('r', "replica")
       .action((x, c) => c.copy(replica = x))
       .text("Number of replicas (default: 3)")
 
-    opt[Int]('b', "buckets").required()
+    opt[Int]('b', "buckets")
       .action((x, c) => c.copy(replica = x))
-      .text("Number of buckets (default: 32")
+      .text("Number of buckets (default: 32)")
 
-    opt[String]('s', "avro_schema").required()
-      .action((x, c) => c.copy(avroSchemaPath = x))
+    opt[String]('s', "avro_schema")
+      .action((x, c) => c.copy(avroSchemaPath = Some(x)))
       .text(".avsc to read to create the table")
 
-    opt[Boolean]('c', "compressed").required()
+    opt[Boolean]('c', "compressed")
       .action((x, c) => c.copy(compressed = x))
       .text("Compress columns using LZ4")
 
     opt[List[String]]('k', "kudu_servers").required()
       .action((x, c) => c.copy(kuduServers = x))
       .text("Kudu master tablets")
+
+    opt[String]('q', "sql")
+      .action((x, c) => c.copy(sql = Some(x)))
+      .text("Custom SQL creation to create columns from: \"id INTEGER, ts BIGINT, name STRING\"")
+
+    checkConfig(c =>
+      if (c.sql.isDefined && c.avroSchemaPath.isDefined) {
+        failure("Can't use an SQL and an Avro schema at the same time")
+      } else {
+        success
+      }
+    )
   }
   parser.parse(args, Config()) match {
     case Some(config) => createTable(config)
@@ -61,61 +74,40 @@ object CreateTable extends App {
   }
 
   def createTable(config: Config) = {
-
     logger.info(config.toString)
 
+    val columns = buildKuduColumns(converter(config), config.pkey, config.compressed)
+    val options = buildKuduTableOptions(config)
+
     val newTableName = config.tableName
-    val pkey = config.pkey
-    val schema = new Schema.Parser().parse(Source.fromFile(config.avroSchemaPath).mkString)
-
-    def toKuduColumn(name: String, avroSchema: org.apache.avro.Schema): ColumnSchema.ColumnSchemaBuilder = {
-      import org.apache.avro.Schema.Type._
-
-      val t = avroSchema.getType
-      t match {
-        case INT => new ColumnSchema.ColumnSchemaBuilder(name, Type.INT32)
-        case STRING => new ColumnSchema.ColumnSchemaBuilder(name, Type.STRING)
-        case BOOLEAN => new ColumnSchema.ColumnSchemaBuilder(name, Type.BOOL)
-        case BYTES => new ColumnSchema.ColumnSchemaBuilder(name, Type.BINARY)
-        case DOUBLE => new ColumnSchema.ColumnSchemaBuilder(name, Type.DOUBLE)
-        case FLOAT => new ColumnSchema.ColumnSchemaBuilder(name, Type.FLOAT)
-        case LONG => new ColumnSchema.ColumnSchemaBuilder(name, Type.INT64)
-        case FIXED => new ColumnSchema.ColumnSchemaBuilder(name, Type.BINARY)
-        case ENUM => new ColumnSchema.ColumnSchemaBuilder(name, Type.STRING)
-        case UNION =>
-          if (avroSchema.getTypes.asScala.exists(_.getType == NULL)) {
-            // In case of a union with null, eliminate it and make a recursive call
-            val remainingUnionTypes = avroSchema.getTypes.asScala.filterNot(_.getType == NULL)
-            if (remainingUnionTypes.size == 1) {
-              toKuduColumn(name, remainingUnionTypes.head).nullable(true)
-            } else {
-              throw new IllegalArgumentException(s"Unsupported union type $t")
-            }
-          } else {
-            throw new IllegalArgumentException(s"Unsupported union type $t")
-          }
-
-        case other => throw new IllegalArgumentException(s"Unsupported type $other")
-      }
-
-    }
-
-    def buildKuduStructure(key: String): List[ColumnSchema] = {
-      implicit def orderingByName[A <: ColumnSchema]: Ordering[A] =
-        Ordering.by(!_.isKey)
-
-      schema.getFields.asScala.map(field => toKuduColumn(field.name, field.schema())
-        .compressionAlgorithm(if(config.compressed) CompressionAlgorithm.LZ4 else CompressionAlgorithm.NO_COMPRESSION)
-        .key(field.name() == pkey)
-        .build()).toList.sorted
-    }
-
-    val options = new CreateTableOptions().addHashPartitions(List(pkey).asJava, config.buckets).setNumReplicas(config.replica)
 
     logger.info(s"Creating table $newTableName...")
     val client = new AsyncKuduClientBuilder(config.kuduServers.asJava).build()
-    client.createTable(newTableName, new org.apache.kudu.Schema(buildKuduStructure(pkey).asJava), options).join()
+    client.createTable(newTableName, new Schema(columns.asJava), options).join()
     logger.info(s"Table $newTableName created!")
+
   }
 
+  def buildKuduTableOptions(config: Config): CreateTableOptions = {
+    new CreateTableOptions()
+      .addHashPartitions(List(config.pkey).asJava, config.buckets)
+      .setNumReplicas(config.replica)
+  }
+
+  def buildKuduColumns(converter: Converter, pkey: String, compressed: Boolean): List[ColumnSchema] = {
+    // we must order by "key" first for Kudu
+    implicit def orderingByName[A <: ColumnSchema]: Ordering[A] = Ordering.by(!_.isKey)
+
+    val compression = if (compressed) CompressionAlgorithm.LZ4 else CompressionAlgorithm.NO_COMPRESSION
+
+    converter.kuduColumns().map { case KuduColumnBuilder(name, builder) =>
+      builder.compressionAlgorithm(compression).key(name == pkey).build()
+    }.sorted
+  }
+
+  private def converter(config: Config): Converter = {
+    (config.avroSchemaPath.map(file => AvroConverter(Source.fromFile(file).mkString))
+     orElse config.sql.map(SqlConverter(_)))
+      .getOrElse(???)
+  }
 }
