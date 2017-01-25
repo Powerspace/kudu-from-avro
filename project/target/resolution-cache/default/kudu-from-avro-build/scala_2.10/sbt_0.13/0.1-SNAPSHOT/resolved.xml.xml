@@ -4,7 +4,7 @@
 		module="kudu-from-avro-build"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20161230153132"
+		publication="20170125101302"
 		e:sbtVersion="0.13" e:scalaVersion="2.10"
 	>
 		<description>
