@@ -4,10 +4,10 @@ import org.apache.kudu.ColumnSchema.ColumnSchemaBuilder
 import org.apache.kudu.{ColumnSchema, Type}
 
 object SqlConverter {
-  def apply(sql: String): SqlConverter = new SqlConverter(sql)
+  def apply(sql: String, pkey: String): SqlConverter = new SqlConverter(sql, pkey)
 }
 
-class SqlConverter(sql: String) extends Converter {
+class SqlConverter(sql: String, pkey: String) extends Converter {
 
   override def kuduColumns(): List[KuduColumnBuilder] = {
     sqlColumns().map(c => KuduColumnBuilder(c.name, toKuduColumn(c.name, c.kind)))
@@ -20,7 +20,7 @@ class SqlConverter(sql: String) extends Converter {
   }
 
   private def toKuduColumn(name: String, t: String): ColumnSchemaBuilder = {
-    t match {
+    (t match {
       case "INT" => new ColumnSchema.ColumnSchemaBuilder(name, Type.INT32)
       case "BIGINT" => new ColumnSchema.ColumnSchemaBuilder(name, Type.INT64)
       case "STRING" => new ColumnSchema.ColumnSchemaBuilder(name, Type.STRING)
@@ -30,7 +30,7 @@ class SqlConverter(sql: String) extends Converter {
       //case "BYTES" => new ColumnSchema.ColumnSchemaBuilder(name, Type.BINARY)
       //case "FIXED" => new ColumnSchema.ColumnSchemaBuilder(name, Type.BINARY)
       case other => throw new IllegalArgumentException(s"Unsupported type $other")
-    }
+    }).nullable(name != pkey)
   }
 
 }
