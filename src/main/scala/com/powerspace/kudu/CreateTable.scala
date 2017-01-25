@@ -107,7 +107,7 @@ object CreateTable extends App {
 
   private def converter(config: Config): Converter = {
     (config.avroSchemaPath.map(file => AvroConverter(Source.fromFile(file).mkString))
-     orElse config.sql.map(SqlConverter(_)))
+     orElse config.sql.map(SqlConverter(_, config.pkey)))
       .getOrElse(???)
   }
 }

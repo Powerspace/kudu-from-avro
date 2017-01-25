@@ -29,6 +29,8 @@ sbt "run -t my_new_table -p id -s schema.avsc -k kudumaster01"
 
 # Create a Kudu table from a SQL script
 
+Note that it defaults all columns to _nullable_ (except the keys of course).
+
 ```
 sbt "run -q \"id STRING, ts BIGINT, name STRING\" -t my_new_table -p id -k kudumaster01"
 ```
