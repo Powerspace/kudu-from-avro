@@ -6,14 +6,14 @@ import org.scalatest.{FlatSpec, Matchers}
 class SqlConverterTest extends FlatSpec with Matchers {
 
   "the sql converter" should "properly parse sql" in {
-    val converter = new SqlConverter(" name STRING,      id INT")
+    val converter = new SqlConverter(" name STRING,      id INT", List())
     converter.sqlColumns() should contain only(
       SqlColumn("name", "STRING"),
       SqlColumn("id", "INT"))
   }
 
   it should "properly map to kudu columns" in {
-    val converter = new SqlConverter(" name STRING,      id BIGINT")
+    val converter = new SqlConverter(" name STRING,      id BIGINT", List())
     val List(a, b) = converter.kuduColumns()
     a.name should === ("name")
     a.builder.build().getName should === ("name")
@@ -26,7 +26,7 @@ class SqlConverterTest extends FlatSpec with Matchers {
 
 
   it should "crash if it found an unknown type" in {
-    val converter = new SqlConverter(" name STRING,     unknown  JOHN")
+    val converter = new SqlConverter(" name STRING,     unknown  JOHN", List())
     an [IllegalArgumentException] should be thrownBy converter.kuduColumns()
   }
 }

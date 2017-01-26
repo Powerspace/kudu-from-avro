@@ -18,7 +18,7 @@ class CreateTableTest extends FlatSpec with Matchers {
       }
     }
 
-    val List(a, b, c) = CreateTable.buildKuduColumns(converter, "id", compressed = true)
+    val List(a, b, c) = CreateTable.buildKuduColumns(converter, List("id"), compressed = true)
 
     a.getName should === ("id")
     a.getType should === (Type.INT64)
@@ -31,6 +31,64 @@ class CreateTableTest extends FlatSpec with Matchers {
     c.getName should === ("active")
     c.getType should === (Type.BOOL)
     c.getCompressionAlgorithm should === (CompressionAlgorithm.LZ4)
+  }
+
+  it should "put keys first as defined in the config" in {
+    val converter = new Converter {
+      override def kuduColumns(): List[KuduColumnBuilder] = {
+        List(
+          KuduColumnBuilder("rest", new ColumnSchemaBuilder("rest", Type.STRING)),
+          KuduColumnBuilder("name", new ColumnSchemaBuilder("name", Type.STRING)),
+          KuduColumnBuilder("active", new ColumnSchemaBuilder("active", Type.BOOL)),
+          KuduColumnBuilder("id", new ColumnSchemaBuilder("id", Type.INT64))
+        )
+      }
+    }
+    {
+      val List(a, b, c, d) = CreateTable.buildKuduColumns(converter, List("id", "name"), false)
+      a.getName should ===("id")
+      b.getName should ===("name")
+      c.getName should ===("rest")
+      d.getName should ===("active")
+    }
+    {
+      val List(a, b, c, d) = CreateTable.buildKuduColumns(converter, List("name", "id"), false)
+      a.getName should ===("name")
+      b.getName should ===("id")
+      c.getName should ===("rest")
+      d.getName should ===("active")
+    }
+    {
+      val List(a, b, c, d) = CreateTable.buildKuduColumns(converter, List("active", "id", "name"), false)
+      a.getName should ===("active")
+      b.getName should ===("id")
+      c.getName should ===("name")
+      d.getName should ===("rest")
+    }
+  }
+
+  it should "build multiple Kudu column keys properly" in {
+    val converter = new Converter {
+      override def kuduColumns(): List[KuduColumnBuilder] = {
+        List(
+          KuduColumnBuilder("name", new ColumnSchemaBuilder("name", Type.STRING)),
+          KuduColumnBuilder("active", new ColumnSchemaBuilder("active", Type.BOOL)),
+          KuduColumnBuilder("id", new ColumnSchemaBuilder("id", Type.INT64))
+        )
+      }
+    }
+
+    val keys = List("id", "name")
+    val List(a, b, c) = CreateTable.buildKuduColumns(converter, keys, compressed = true)
+
+    a.getName should === ("id")
+    a.isKey should === (true)
+
+    b.getName should === ("name")
+    b.isKey should === (true)
+
+    c.getName should === ("active")
+    c.isKey should === (false)
   }
 
 }

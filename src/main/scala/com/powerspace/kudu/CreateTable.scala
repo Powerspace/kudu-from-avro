@@ -11,14 +11,14 @@ import scala.collection.JavaConverters._
 import scala.io.Source
 
 case class Config(
-                 tableName: String = "demo",
-                 pkey: String = "id",
-                 avroSchemaPath: Option[String] = None,
-                 kuduServers: List[String] = List(),
-                 sql: Option[String] = None,
-                 compressed: Boolean = true,
-                 replica: Int = 3,
-                 buckets: Int = 32
+                   tableName: String = "demo",
+                   pkeys: List[String] = List("id"),
+                   avroSchemaPath: Option[String] = None,
+                   kuduServers: List[String] = List(),
+                   sql: Option[String] = None,
+                   compressed: Boolean = true,
+                   replica: Int = 3,
+                   buckets: Int = 32
                  )
 
 object CreateTable extends App {
@@ -32,8 +32,8 @@ object CreateTable extends App {
       .action((x, c) => c.copy(tableName = x))
       .text("Table to create in Kudu")
 
-    opt[String]('p', "primary_key").required()
-      .action((x, c) => c.copy(pkey = x))
+    opt[List[String]]('p', "primary_key").required()
+      .action((x, c) => c.copy(pkeys = x))
       .text("Primary key column name in the Kudu table")
 
     opt[Int]('r', "replica")
@@ -76,7 +76,7 @@ object CreateTable extends App {
   def createTable(config: Config) = {
     logger.info(config.toString)
 
-    val columns = buildKuduColumns(converter(config), config.pkey, config.compressed)
+    val columns = buildKuduColumns(converter(config), config.pkeys, config.compressed)
     val options = buildKuduTableOptions(config)
 
     val newTableName = config.tableName
@@ -90,24 +90,29 @@ object CreateTable extends App {
 
   def buildKuduTableOptions(config: Config): CreateTableOptions = {
     new CreateTableOptions()
-      .addHashPartitions(List(config.pkey).asJava, config.buckets)
+      .addHashPartitions(config.pkeys.asJava, config.buckets)
       .setNumReplicas(config.replica)
   }
 
-  def buildKuduColumns(converter: Converter, pkey: String, compressed: Boolean): List[ColumnSchema] = {
+  def buildKuduColumns(converter: Converter, pkeys: List[String], compressed: Boolean): List[ColumnSchema] = {
     // we must order by "key" first for Kudu
-    implicit def orderingByName[A <: ColumnSchema]: Ordering[A] = Ordering.by(!_.isKey)
-
+    //implicit def orderingByName[A <: ColumnSchema]: Ordering[A] = Ordering.by(!_.isKey)
     val compression = if (compressed) CompressionAlgorithm.LZ4 else CompressionAlgorithm.NO_COMPRESSION
 
     converter.kuduColumns().map { case KuduColumnBuilder(name, builder) =>
-      builder.compressionAlgorithm(compression).key(name == pkey).build()
-    }.sorted
+      builder.compressionAlgorithm(compression).key(pkeys.contains(name)).build()
+    }.sortWith(sortColumns(_,_)(pkeys))
+  }
+
+  def sortColumns(a: ColumnSchema, b: ColumnSchema)(pkeys: List[String]): Boolean = {
+    if (pkeys.indexOf(a.getName) < 0) false
+    else if (pkeys.indexOf(b.getName) < 0) true
+    else pkeys.indexOf(a.getName) < pkeys.indexOf(b.getName)
   }
 
   private def converter(config: Config): Converter = {
     (config.avroSchemaPath.map(file => AvroConverter(Source.fromFile(file).mkString))
-     orElse config.sql.map(SqlConverter(_, config.pkey)))
+     orElse config.sql.map(SqlConverter(_, config.pkeys)))
       .getOrElse(???)
   }
 }
