@@ -5,7 +5,7 @@ This tool can create a Kudu table from an Avro schema or from a (Impala) SQL scr
 # Usage
 
 ```
-Usage: CreateTable [options]
+Usage: kudu-from-avro [options]
 
   -t, --table <value>      Table to create in Kudu
   -p, --primary_key <value>
@@ -21,10 +21,14 @@ Usage: CreateTable [options]
   -q, --sql <value>        Custom SQL creation to create columns from: "id INTEGER, ts BIGINT, name STRING"
 ```
 
+## Compound keys
+
+`-p` supports a compound primary key `-p id,company_id`; those columns will be the first in the Kudu table, as required by Kudu.
+
 # Create a Kudu table from an Avro schema
  
 ```
-sbt "run -t my_new_table -p id -s schema.avsc -k kudumaster01"
+$ ./kudu-from-avro -t my_new_table -p id -s schema.avsc -k kudumaster01
 ```
 
 # Create a Kudu table from a SQL script
@@ -32,6 +36,14 @@ sbt "run -t my_new_table -p id -s schema.avsc -k kudumaster01"
 Note that it defaults all columns to _nullable_ (except the keys of course).
 
 ```
-sbt "run -q \"id STRING, ts BIGINT, name STRING\" -t my_new_table -p id -k kudumaster01"
+$ ./kudu-from-avro -q "id STRING, ts BIGINT, name STRING" -t my_new_table -p id -k kudumaster01
 ```
+
+# How to build it
+
+```
+$ sbt universal:packageBin
+```
+
+The `.zip` will be available in `target/universal/kudu-from-avro-1.0.zip`, and the executable inside: `bin/kudu-from-avro`.
 
