@@ -1,4 +1,4 @@
-# Kudu from Avro and SQL
+# Kudu from Avro and SQL [![Build Status](https://travis-ci.org/Powerspace/kudu-from-avro.svg?branch=master)](https://travis-ci.org/Powerspace/kudu-from-avro)
 
 This tool can create a Kudu table from an Avro schema or from a (Impala) SQL script. (the SQL part came later :-))
 
