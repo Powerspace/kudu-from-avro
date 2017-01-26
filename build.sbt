@@ -1,3 +1,5 @@
+import NativePackagerHelper._
+
 name := "kudu-from-avro"
 
 version := "1.0"
@@ -18,3 +20,5 @@ libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.1" % "test"
 dependencyOverrides += "org.slf4j" % "slf4j-api" % "1.7.22"
 
 testOptions in Test += Tests.Argument("-oDF")
+
+enablePlugins(JavaAppPackaging)

@@ -27,7 +27,7 @@ object CreateTable extends App {
   implicit val listRead: scopt.Read[List[String]] =
     scopt.Read.reads(x => x.split(',').toList)
 
-  val parser = new scopt.OptionParser[Config]("CreateTable") {
+  val parser = new scopt.OptionParser[Config]("kudu-from-avro") {
     opt[String]('t', "table").required()
       .action((x, c) => c.copy(tableName = x))
       .text("Table to create in Kudu")
