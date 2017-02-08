@@ -5,7 +5,18 @@ import org.apache.kudu.ColumnSchema.{ColumnSchemaBuilder, CompressionAlgorithm}
 import org.apache.kudu.Type
 import org.scalatest.{FlatSpec, Matchers}
 
+import scala.language.implicitConversions
+
 class CreateTableTest extends FlatSpec with Matchers {
+
+  implicit def strToKey(s: String): HashedKey = HashedKey(s)
+
+  it should "parse the command line properly" in {
+    val conf = CliParser.parse("-t test -k server -p id:44,name:8,unknown".split(' ')).get
+    conf.pkeys(0) shouldBe HashedKey("id", 44)
+    conf.pkeys(1) shouldBe HashedKey("name", 8)
+    conf.pkeys(2) shouldBe HashedKey("unknown")
+  }
 
   it should "build Kudu columns properly" in {
     val converter = new Converter {
@@ -78,7 +89,7 @@ class CreateTableTest extends FlatSpec with Matchers {
       }
     }
 
-    val keys = List("id", "name")
+    val keys = List[HashedKey]("id", "name")
     val List(a, b, c) = CreateTable.buildKuduColumns(converter, keys, compressed = true)
 
     a.getName should === ("id")

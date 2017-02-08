@@ -23,7 +23,7 @@ Usage: kudu-from-avro [options]
 
 ## Compound keys
 
-`-p` supports a compound primary key `-p id,company_id`; those columns will be the first in the Kudu table, as required by Kudu.
+`-p` supports a compound primary key `-p id,company_id`; those columns will be the first in the Kudu table, as required by Kudu. It also support a value to specify the count of partitions: `-pd id:100,company_id:10`
 
 # Create a Kudu table from an Avro schema
  

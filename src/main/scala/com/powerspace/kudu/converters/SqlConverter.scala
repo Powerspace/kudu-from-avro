@@ -30,7 +30,7 @@ class SqlConverter(sql: String, pkeys: List[String]) extends Converter {
       //case "BYTES" => new ColumnSchema.ColumnSchemaBuilder(name, Type.BINARY)
       //case "FIXED" => new ColumnSchema.ColumnSchemaBuilder(name, Type.BINARY)
       case other => throw new IllegalArgumentException(s"Unsupported type $other")
-    }).nullable(!pkeys.contains(name))
+    }).key(pkeys.contains(name)).nullable(!pkeys.contains(name))
   }
 
 }
