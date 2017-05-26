@@ -22,7 +22,7 @@ case class AddColumnConfig(
 
 }
 
-object UpdateTable extends App {
+object AlterTable extends App {
   val logger = LoggerFactory.getLogger(getClass)
 
   AlterTableCliParser.parse(args) match {
