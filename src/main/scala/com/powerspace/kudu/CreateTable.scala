@@ -1,5 +1,6 @@
 package com.powerspace.kudu
 
+import com.powerspace.kudu.cli.CreateTableCliParser
 import com.powerspace.kudu.converters.{AvroConverter, Converter, KuduColumnBuilder, SqlConverter}
 import org.apache.kudu.{ColumnSchema, Schema}
 import org.apache.kudu.ColumnSchema.CompressionAlgorithm
@@ -12,7 +13,7 @@ import scala.io.Source
 
 
 case class HashedKey(name: String, buckets: Int = 32)
-case class Config(
+case class CreateTableConfig(
                    tableName: String = "demo",
                    pkeys: List[HashedKey] = List(HashedKey("id")),
                    avroSchemaPath: Option[String] = None,
@@ -26,12 +27,12 @@ case class Config(
 object CreateTable extends App {
   val logger = LoggerFactory.getLogger(getClass)
 
-  CliParser.parse(args) match {
+  CreateTableCliParser.parse(args) match {
     case Some(config) => createTable(config)
     case None =>
   }
 
-  def createTable(config: Config): Unit = {
+  def createTable(config: CreateTableConfig): Unit = {
     logger.info(config.toString)
 
     val columns = buildKuduColumns(converter(config), config.pkeys, config.compressed)
@@ -45,7 +46,7 @@ object CreateTable extends App {
     logger.info(s"Table $newTableName created!")
   }
 
-  def buildKuduTableOptions(config: Config): CreateTableOptions = {
+  def buildKuduTableOptions(config: CreateTableConfig): CreateTableOptions = {
      config.pkeys.foldLeft(new CreateTableOptions().setNumReplicas(config.replica))((acc, key) =>
       acc.addHashPartitions(List(key.name).asJava, key.buckets)
     )
@@ -69,7 +70,7 @@ object CreateTable extends App {
     else pkeys.indexOf(a.getName) < pkeys.indexOf(b.getName)
   }
 
-  private def converter(config: Config): Converter = {
+  private def converter(config: CreateTableConfig): Converter = {
     (config.avroSchemaPath.map(file => AvroConverter(Source.fromFile(file).mkString))
      orElse config.sql.map(SqlConverter(_, config.pkeys.map(_.name))))
       .getOrElse(???)

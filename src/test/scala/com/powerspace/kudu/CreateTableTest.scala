@@ -1,5 +1,6 @@
 package com.powerspace.kudu
 
+import com.powerspace.kudu.cli.CreateTableCliParser
 import com.powerspace.kudu.converters.{Converter, KuduColumnBuilder}
 import org.apache.kudu.ColumnSchema.{ColumnSchemaBuilder, CompressionAlgorithm}
 import org.apache.kudu.Type
@@ -12,7 +13,7 @@ class CreateTableTest extends FlatSpec with Matchers {
   implicit def strToKey(s: String): HashedKey = HashedKey(s)
 
   it should "parse the command line properly" in {
-    val conf = CliParser.parse("-t test -k server -p id:44,name:8,unknown".split(' ')).get
+    val conf = CreateTableCliParser.parse("-t test -k server -p id:44,name:8,unknown".split(' ')).get
     conf.pkeys(0) shouldBe HashedKey("id", 44)
     conf.pkeys(1) shouldBe HashedKey("name", 8)
     conf.pkeys(2) shouldBe HashedKey("unknown")

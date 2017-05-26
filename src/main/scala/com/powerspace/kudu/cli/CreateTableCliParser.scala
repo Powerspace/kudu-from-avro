@@ -1,20 +1,13 @@
-package com.powerspace.kudu
+package com.powerspace.kudu.cli
 
-object CliParser {
+import com.powerspace.kudu.{CreateTableConfig, HashedKey}
 
-  implicit val listRead: scopt.Read[List[String]] =
-    scopt.Read.reads(x => x.split(',').toList)
+object CreateTableCliParser {
+  import CLiReads._
 
-  implicit val keysRead: scopt.Read[List[HashedKey]] =
-    scopt.Read.reads(x => x.split(',').toList
-                           .map(arr => arr.split(':').toList match {
-                                case List(key) => HashedKey(key)
-                                case List(key, bucket) => HashedKey(key, bucket.toInt)
-                           }))
+  def parse(args: Seq[String]): Option[CreateTableConfig] = parser.parse(args, CreateTableConfig())
 
-  def parse(args: Seq[String]): Option[Config] = parser.parse(args, Config())
-
-  implicit def parser = new scopt.OptionParser[Config]("kudu-from-avro") {
+  implicit def parser = new scopt.OptionParser[CreateTableConfig]("kudu-from-avro") {
     opt[String]('t', "table").required()
       .action((x, c) => c.copy(tableName = x))
       .text("Table to create in Kudu")
