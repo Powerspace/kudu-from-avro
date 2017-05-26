@@ -1,7 +1,7 @@
 package com.powerspace.kudu
 
 import com.powerspace.kudu.cli.CreateTableCliParser
-import com.powerspace.kudu.converters.{AvroConverter, Converter, KuduColumnBuilder, SqlConverter}
+import com.powerspace.kudu.converters.{AvroColumnBuilder, ColumnBuilder, SqlColumnBuilder}
 import org.apache.kudu.{ColumnSchema, Schema}
 import org.apache.kudu.ColumnSchema.CompressionAlgorithm
 import org.apache.kudu.client.AsyncKuduClient.AsyncKuduClientBuilder
@@ -52,27 +52,18 @@ object CreateTable extends App {
     )
   }
 
-  def buildKuduColumns(converter: Converter, pkeys: List[HashedKey], compressed: Boolean): List[ColumnSchema] = {
+  def buildKuduColumns(converter: ColumnBuilder, pkeys: List[HashedKey], compressed: Boolean): List[ColumnSchema] = {
     // we must order by "key" first for Kudu
     //implicit def orderingByName[A <: ColumnSchema]: Ordering[A] = Ordering.by(!_.isKey)
     val compression = if (compressed) CompressionAlgorithm.LZ4 else CompressionAlgorithm.NO_COMPRESSION
     val pkeyNames = pkeys.map(_.name)
 
-    converter.kuduColumns().map { case KuduColumnBuilder(name, builder) =>
-      builder.compressionAlgorithm(compression).key(pkeyNames.contains(name)).build()
-    }.sortWith(sortColumns(_,_)(pkeyNames))
+    converter.kuduColumns(compression, pkeyNames)
   }
 
-  /** Does a precedes b ? */
-  def sortColumns(a: ColumnSchema, b: ColumnSchema)(pkeys: List[String]): Boolean = {
-    if (!a.isKey) false
-    else if (!b.isKey) true
-    else pkeys.indexOf(a.getName) < pkeys.indexOf(b.getName)
-  }
-
-  private def converter(config: CreateTableConfig): Converter = {
-    (config.avroSchemaPath.map(file => AvroConverter(Source.fromFile(file).mkString))
-     orElse config.sql.map(SqlConverter(_, config.pkeys.map(_.name))))
+  private def converter(config: CreateTableConfig): ColumnBuilder = {
+    (config.avroSchemaPath.map(file => AvroColumnBuilder(Source.fromFile(file).mkString))
+     orElse config.sql.map(SqlColumnBuilder(_, config.pkeys.map(_.name))))
       .getOrElse(???)
   }
 }

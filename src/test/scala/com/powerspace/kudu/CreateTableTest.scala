@@ -1,7 +1,7 @@
 package com.powerspace.kudu
 
 import com.powerspace.kudu.cli.CreateTableCliParser
-import com.powerspace.kudu.converters.{Converter, KuduColumnBuilder}
+import com.powerspace.kudu.converters.{ColumnBuilder, KuduColumnBuilder}
 import org.apache.kudu.ColumnSchema.{ColumnSchemaBuilder, CompressionAlgorithm}
 import org.apache.kudu.Type
 import org.scalatest.{FlatSpec, Matchers}
@@ -20,17 +20,20 @@ class CreateTableTest extends FlatSpec with Matchers {
   }
 
   it should "build Kudu columns properly" in {
-    val converter = new Converter {
-      override def kuduColumns(): List[KuduColumnBuilder] = {
+    val converter = new ColumnBuilder {
+      override def baseColumns(): List[(String, ColumnSchemaBuilder)] = {
         List(
-          KuduColumnBuilder("name", new ColumnSchemaBuilder("name", Type.STRING)),
-          KuduColumnBuilder("active", new ColumnSchemaBuilder("active", Type.BOOL)),
-          KuduColumnBuilder("id", new ColumnSchemaBuilder("id", Type.INT64))
+          ("name", new ColumnSchemaBuilder("name", Type.STRING)),
+          ("active", new ColumnSchemaBuilder("active", Type.BOOL)),
+          ("id", new ColumnSchemaBuilder("id", Type.INT64))
         )
       }
     }
 
-    val List(a, b, c) = CreateTable.buildKuduColumns(converter, List("id"), compressed = true)
+    val List(a, b, c) = CreateTable.buildKuduColumns(
+      converter,
+      List("id"),
+      compressed = true)
 
     a.getName should === ("id")
     a.getType should === (Type.INT64)
@@ -43,16 +46,19 @@ class CreateTableTest extends FlatSpec with Matchers {
     c.getName should === ("active")
     c.getType should === (Type.BOOL)
     c.getCompressionAlgorithm should === (CompressionAlgorithm.LZ4)
+
+
+
   }
 
   it should "put keys first as defined in the config" in {
-    val converter = new Converter {
-      override def kuduColumns(): List[KuduColumnBuilder] = {
+    val converter = new ColumnBuilder {
+      override def baseColumns(): List[(String, ColumnSchemaBuilder)] = {
         List(
-          KuduColumnBuilder("rest", new ColumnSchemaBuilder("rest", Type.STRING)),
-          KuduColumnBuilder("name", new ColumnSchemaBuilder("name", Type.STRING)),
-          KuduColumnBuilder("active", new ColumnSchemaBuilder("active", Type.BOOL)),
-          KuduColumnBuilder("id", new ColumnSchemaBuilder("id", Type.INT64))
+          ("rest", new ColumnSchemaBuilder("rest", Type.STRING)),
+          ("name", new ColumnSchemaBuilder("name", Type.STRING)),
+          ("active", new ColumnSchemaBuilder("active", Type.BOOL)),
+          ("id", new ColumnSchemaBuilder("id", Type.INT64))
         )
       }
     }
@@ -80,12 +86,12 @@ class CreateTableTest extends FlatSpec with Matchers {
   }
 
   it should "build multiple Kudu column keys properly" in {
-    val converter = new Converter {
-      override def kuduColumns(): List[KuduColumnBuilder] = {
+    val converter = new ColumnBuilder {
+      override def baseColumns(): List[(String, ColumnSchemaBuilder)] = {
         List(
-          KuduColumnBuilder("name", new ColumnSchemaBuilder("name", Type.STRING)),
-          KuduColumnBuilder("active", new ColumnSchemaBuilder("active", Type.BOOL)),
-          KuduColumnBuilder("id", new ColumnSchemaBuilder("id", Type.INT64))
+          ("name", new ColumnSchemaBuilder("name", Type.STRING)),
+          ("active", new ColumnSchemaBuilder("active", Type.BOOL)),
+          ("id", new ColumnSchemaBuilder("id", Type.INT64))
         )
       }
     }

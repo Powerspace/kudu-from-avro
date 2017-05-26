@@ -1,29 +1,32 @@
 package com.powerspace.kudu.converters
 
 import org.apache.avro.Schema
+import org.apache.avro.Schema.Field
 import org.apache.kudu.{ColumnSchema, Type}
-import org.apache.kudu.ColumnSchema.ColumnSchemaBuilder
+import org.apache.kudu.ColumnSchema.{ColumnSchemaBuilder, CompressionAlgorithm}
+
 import collection.JavaConverters._
 
 case class AvroColumn(name: String, schema: Schema)
 
-object AvroConverter {
-  def apply(avroPath: String): AvroConverter = new AvroConverter(avroPath)
+object AvroColumnBuilder {
+  def apply(avroPath: String): AvroColumnBuilder = new AvroColumnBuilder(avroPath)
+
+  def fieldToAvroColumn(field: Field) = AvroColumn(field.name(), field.schema())
 }
 
-class AvroConverter(avroSchema: String) extends Converter {
+class AvroColumnBuilder(avroSchema: String) extends ColumnBuilder {
 
-  val schema = new Schema.Parser().parse(avroSchema)
+  val schema: Schema = new Schema.Parser().parse(avroSchema)
 
-  override def kuduColumns(): List[KuduColumnBuilder] = {
-    avroColumns().map(field => KuduColumnBuilder(
-      field.name,
-      toKuduColumn(field.name, field.schema)
-    ))
+  override def baseColumns() = {
+    avroColumns().map(
+      field => (field.name, toKuduColumn(field.name, field.schema)))
   }
 
+
   def avroColumns(): List[AvroColumn] = {
-    schema.getFields.asScala.map(field => AvroColumn(field.name(), field.schema())).toList
+    schema.getFields.asScala.map(AvroColumnBuilder.fieldToAvroColumn).toList
   }
 
   private def toKuduColumn(name: String, avroSchema: org.apache.avro.Schema): ColumnSchemaBuilder = {

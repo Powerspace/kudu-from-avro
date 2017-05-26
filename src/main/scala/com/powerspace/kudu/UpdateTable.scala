@@ -1,15 +1,13 @@
 package com.powerspace.kudu
 
-import com.powerspace.kudu.cli.{AlterTableCliParser, CreateTableCliParser}
-import com.powerspace.kudu.converters.{AvroConverter, Converter, KuduColumnBuilder, SqlConverter}
-import org.apache.kudu.{ColumnSchema, Schema, Type}
+import com.powerspace.kudu.cli.AlterTableCliParser
 import org.apache.kudu.ColumnSchema.CompressionAlgorithm
+import org.apache.kudu.client.AlterTableOptions
 import org.apache.kudu.client.AsyncKuduClient.AsyncKuduClientBuilder
-import org.apache.kudu.client.{AlterTableOptions, CreateTableOptions}
+import org.apache.kudu.{ColumnSchema, Type}
 import org.slf4j.LoggerFactory
 
 import scala.collection.JavaConverters._
-import scala.io.Source
 
 
 case class AddColumnConfig(

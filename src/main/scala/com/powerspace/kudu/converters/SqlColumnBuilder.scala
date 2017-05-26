@@ -1,26 +1,32 @@
 package com.powerspace.kudu.converters
 
-import org.apache.kudu.ColumnSchema.ColumnSchemaBuilder
+import org.apache.kudu.ColumnSchema.{ColumnSchemaBuilder, CompressionAlgorithm}
 import org.apache.kudu.{ColumnSchema, Type}
 
-object SqlConverter {
-  def apply(sql: String, pkeys: List[String]): SqlConverter = new SqlConverter(sql, pkeys)
+object SqlColumnBuilder {
+  def apply(sql: String, pkeys: List[String]): SqlColumnBuilder = new SqlColumnBuilder(sql, pkeys)
 }
 
-class SqlConverter(sql: String, pkeys: List[String]) extends Converter {
-
-  override def kuduColumns(): List[KuduColumnBuilder] = {
-    sqlColumns().map(c => KuduColumnBuilder(c.name, toKuduColumn(c.name, c.kind)))
+class SqlColumnBuilder(sql: String, pkeys: List[String]) extends ColumnBuilder {
+  override def baseColumns(): List[(String, ColumnSchemaBuilder)] = {
+    sqlColumns().map(c => (c.name, toKuduColumn(c.name, c.kind)))
   }
 
   def sqlColumns(): List[SqlColumn] = {
-    sql.split(',').flatMap(_.split(' ')).filter(_.nonEmpty).grouped(2).map(_.toList).map { case List(name: String, t: String) =>
-      SqlColumn(name, t)
+    val splittedVar = sql.split(',').
+      flatMap(_.split(' ')).
+      filter(_.nonEmpty)
+
+    val nameAndKinds = splittedVar.
+      grouped(2).map(_.toList)
+
+    nameAndKinds.
+      map { case List(name: String, kind: String) => SqlColumn(name, kind)
     }.toList
   }
 
-  private def toKuduColumn(name: String, t: String): ColumnSchemaBuilder = {
-    (t match {
+  private def toKuduColumn(name: String, sqlType: String): ColumnSchemaBuilder = {
+    (sqlType match {
       case "INT" => new ColumnSchema.ColumnSchemaBuilder(name, Type.INT32)
       case "BIGINT" => new ColumnSchema.ColumnSchemaBuilder(name, Type.INT64)
       case "STRING" => new ColumnSchema.ColumnSchemaBuilder(name, Type.STRING)

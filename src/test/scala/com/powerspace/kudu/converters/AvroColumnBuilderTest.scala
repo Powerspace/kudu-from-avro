@@ -4,8 +4,10 @@ import org.apache.kudu.Type._
 import org.scalatest.{FlatSpec, Matchers}
 import org.apache.avro.Schema.{Type => AvroType}
 import org.apache.avro.SchemaParseException
+import org.apache.kudu.ColumnSchema.CompressionAlgorithm
+import org.apache.kudu.ColumnSchema.CompressionAlgorithm.LZ4
 
-class AvroConverterTest extends FlatSpec with Matchers {
+class AvroColumnBuilderTest extends FlatSpec with Matchers {
 
   val schema =
     """
@@ -37,7 +39,7 @@ class AvroConverterTest extends FlatSpec with Matchers {
     """.stripMargin
 
   "the Avro converter" should "properly parse an Avro schema" in {
-    val converter = new AvroConverter(schema)
+    val converter = new AvroColumnBuilder(schema)
     val List(a, b, c) = converter.avroColumns()
     a.name should === ("valid")
     a.schema.getType should === (AvroType.BOOLEAN)
@@ -48,23 +50,20 @@ class AvroConverterTest extends FlatSpec with Matchers {
   }
 
   it should "properly map to kudu columns" in {
-    val converter = new AvroConverter(schema)
-    val List(a, b, c) = converter.kuduColumns()
-    a.name should === ("valid")
-    a.builder.build().getName should === ("valid")
-    a.builder.build().getType should === (BOOL)
+    val converter = new AvroColumnBuilder(schema)
+    val List(a, b, c) = converter.kuduColumns(LZ4, List())
+    a.getName should === ("valid")
+    a.getType should === (BOOL)
 
-    b.name should === ("eventType")
-    b.builder.build().getName should === ("eventType")
-    b.builder.build().getType should === (STRING)
+    b.getName should === ("eventType")
+    b.getType should === (STRING)
 
-    c.name should === ("id")
-    c.builder.build().getName should === ("id")
-    c.builder.build().getType should === (INT64)
+    c.getName should === ("id")
+    c.getType should === (INT64)
   }
 
   it should "crash if it found an unknown type" in {
-    an [SchemaParseException] should be thrownBy  new AvroConverter(unknownTypeSchema)
+    an [SchemaParseException] should be thrownBy  new AvroColumnBuilder(unknownTypeSchema)
   }
 
 }
