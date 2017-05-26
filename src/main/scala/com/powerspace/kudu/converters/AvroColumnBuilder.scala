@@ -25,7 +25,6 @@ object SchemaAnalysis {
     import org.apache.avro.Schema.Type._
 
 
-
     avroSchema.getType match {
       case INT => new ColumnSchema.ColumnSchemaBuilder(name, Type.INT32).defaultValue(defaultValue)
       case STRING => new ColumnSchema.ColumnSchemaBuilder(name, Type.STRING).defaultValue(defaultValue)

@@ -1,6 +1,6 @@
 package com.powerspace.kudu.cli
 
-import com.powerspace.kudu.{AddColumnConfig, CreateTableConfig, HashedKey}
+import com.powerspace.kudu.{AddColumnConfig, CreateTableConfig, DropColumnConfig, HashedKey}
 import org.apache.kudu.ColumnSchema.CompressionAlgorithm
 import org.apache.kudu.Type
 
@@ -43,6 +43,12 @@ object AlterTableCliParser {
         key = x))
       .text("Raw key")
 
+   opt[Either[Number, String]]("default")
+      .action((x, c) => c.copy(default = Some(x)))
+      .text("Default value")
+
     checkConfig(c => success)
   }
 }
+
+

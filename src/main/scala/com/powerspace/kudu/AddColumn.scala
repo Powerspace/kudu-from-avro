@@ -7,7 +7,6 @@ import org.apache.kudu.client.AsyncKuduClient.AsyncKuduClientBuilder
 import org.apache.kudu.{ColumnSchema, Type}
 import org.slf4j.LoggerFactory
 
-import scala.collection.JavaConverters._
 
 
 case class AddColumnConfig(
@@ -18,11 +17,17 @@ case class AddColumnConfig(
                    columnType: Type = Type.STRING,
                    key: Boolean = false,
                    compression: CompressionAlgorithm = CompressionAlgorithm.LZ4,
-                   default: Option[Any] = None) {
-
+                   default: Option[Either[Number, String]] = None) {
 }
 
-object AlterTable extends App {
+
+
+/**
+  * Add a specific column
+  */
+object AddColumn extends App {
+  import scala.collection.JavaConverters._
+
   val logger = LoggerFactory.getLogger(getClass)
 
   AlterTableCliParser.parse(args) match {
@@ -33,25 +38,40 @@ object AlterTable extends App {
   def updateTable(config: AddColumnConfig): Unit = {
     logger.info(config.toString)
 
-    val options = buildAlterTableOptions(config)
+    val options = new AlterTableOptions().addColumn(addColumn(config))
 
     val newTableName = config.tableName
 
-    logger.info(s"Creating table $newTableName...")
+    logger.info(s"Altering table $newTableName...")
     val client = new AsyncKuduClientBuilder(config.kuduServers.asJava).build()
-    client.alterTable(config.tableName, options)
+    println(client.alterTable(config.tableName, options).join())
     logger.info(s"Table $newTableName altered !")
   }
 
-  def buildAlterTableOptions(config: AddColumnConfig): AlterTableOptions = {
-    new AlterTableOptions().addColumn(addColumn(config))
+  /** Extract the good value with the good type given the wanted kudu type **/
+  def defaultToType(kuduType: Type, default: Either[Number, String]): Any = {
+    val numerical = default.left.toOption
+    val unparsed = default.right.toOption
+
+    kuduType match {
+      case Type.INT32 => numerical.map(_.intValue()).orNull
+      case Type.FLOAT => numerical.map(_.floatValue()).orNull
+      case Type.DOUBLE => numerical.map(_.doubleValue()).orNull
+      case Type.STRING =>
+        numerical.map(_.toString).orElse(unparsed).orNull
+    }
   }
 
   private def addColumn(config: AddColumnConfig) = {
-    new ColumnSchema.ColumnSchemaBuilder(config.columnName, config.columnType).
+    val baseBuilder = new ColumnSchema.ColumnSchemaBuilder(config.columnName, config.columnType).
       compressionAlgorithm(config.compression).
       key(config.key).
-      nullable(config.nullable).
+      nullable(config.nullable)
+
+    config.default.map(d => baseBuilder.defaultValue(defaultToType(config.columnType, d))).
+      getOrElse(baseBuilder).
       build()
   }
 }
+
+
