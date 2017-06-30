@@ -1,6 +1,6 @@
 package com.powerspace.kudu.cli
 
-import com.powerspace.kudu.{AddColumnConfig, CreateTableConfig, HashedKey}
+import com.powerspace.kudu.AddColumnConfig
 import org.apache.kudu.ColumnSchema.CompressionAlgorithm
 import org.apache.kudu.Type
 
@@ -18,7 +18,7 @@ object AlterTableCliParser {
       .action((x, c) => c.copy(kuduServers = x))
       .text("Kudu master tablets")
 
-    opt[String]("name").required()
+    opt[String]('n', "name").required()
       .action((x, c) => c.copy(
         columnName = x))
       .text("Column name")
@@ -28,7 +28,7 @@ object AlterTableCliParser {
         columnType = Type.valueOf(x)))
       .text("Column type")
 
-    opt[Boolean]("compression")
+    opt[Boolean]('c', "compression")
       .action((x, c) => c.copy(
         compression = if(x) CompressionAlgorithm.LZ4 else CompressionAlgorithm.NO_COMPRESSION))
       .text("Compress columns using LZ4")

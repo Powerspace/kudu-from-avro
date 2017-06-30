@@ -5,7 +5,9 @@ This tool can create a Kudu table from an Avro schema or from a (Impala) SQL scr
 # Usage
 
 ```
-Usage: kudu-from-avro [options]
+Usage: 
+
+create-table [options]
 
   -t, --table <value>      Table to create in Kudu
   -p, --primary_key <value>
@@ -19,6 +21,18 @@ Usage: kudu-from-avro [options]
   -k, --kudu_servers <value>
                            Kudu master tablets
   -q, --sql <value>        Custom SQL creation to create columns from: "id INTEGER, ts BIGINT, name STRING"
+  
+update-table [options]
+
+  -t, --table <value>      Table to update in Kudu
+  -k, --kudu_servers <value>
+                           Kudu master tablets
+  -n, --name <value>       Name of the column to update
+  --type <value>           Type of the column (one of int8, int16, int32, int64, binary,
+                                                string, bool, float, double, unixtime_micros)
+  -c, --compression        Set the compression to LZ4
+  --nullable               Set the column to nullable
+  --raw_key                Set the column as part of the row key
 ```
 
 ## Compound keys
@@ -28,7 +42,7 @@ Usage: kudu-from-avro [options]
 # Create a Kudu table from an Avro schema
  
 ```
-$ ./kudu-from-avro -t my_new_table -p id -s schema.avsc -k kudumaster01
+$ ./create-table -t my_new_table -p id -s schema.avsc -k kudumaster01
 ```
 
 # Create a Kudu table from a SQL script
@@ -36,7 +50,13 @@ $ ./kudu-from-avro -t my_new_table -p id -s schema.avsc -k kudumaster01
 Note that it defaults all columns to _nullable_ (except the keys of course).
 
 ```
-$ ./kudu-from-avro -q "id STRING, ts BIGINT, name STRING" -t my_new_table -p id -k kudumaster01
+$ ./create-table -q "id STRING, ts BIGINT, name STRING" -t my_new_table -p id -k kudumaster01
+```
+
+# Add a column to a Kudu Table
+
+```
+$ ./update-table -t my_table -n new_column --type float -c --nullable --raw_key -k kudumaster01
 ```
 
 # How to build it
@@ -45,5 +65,5 @@ $ ./kudu-from-avro -q "id STRING, ts BIGINT, name STRING" -t my_new_table -p id 
 $ sbt universal:packageBin
 ```
 
-The `.zip` will be available in `target/universal/kudu-from-avro-1.0.zip`, and the executable inside: `bin/kudu-from-avro`.
+The `.zip` will be available in `target/universal/kudu-from-avro-1.0.zip`, and the executable inside: `bin`, `update-table` and `create-table`.
 
