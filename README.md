@@ -33,6 +33,12 @@ update-table [options]
   -c, --compression        Set the compression to LZ4
   --nullable               Set the column to nullable
   --raw_key                Set the column as part of the row key
+
+delete-table [options]
+
+  -t, --table <value>      Table to delete in Kudu
+  -k, --kudu_servers <value>
+                           Kudu master tablets
 ```
 
 ## Compound keys
@@ -57,6 +63,12 @@ $ ./create-table -q "id STRING, ts BIGINT, name STRING" -t my_new_table -p id -k
 
 ```
 $ ./update-table -t my_table -n new_column --type float -c --nullable --raw_key -k kudumaster01
+```
+
+# Delete a table in kudu
+
+```
+$ ./delete-table -t my_table -k kudumaster01
 ```
 
 # How to build it
