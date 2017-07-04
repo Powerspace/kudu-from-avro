@@ -39,7 +39,7 @@ object UpdateTable extends App {
 
     logger.info(s"Updating table $tableName...")
     val client = new AsyncKuduClientBuilder(config.kuduServers.asJava).build()
-    client.alterTable(config.tableName, options)
+    client.alterTable(config.tableName, options).join()
     logger.info(s"Table $tableName altered !")
   }
 
